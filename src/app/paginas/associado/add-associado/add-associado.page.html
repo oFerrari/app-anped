@@ -5,9 +5,37 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">add-associado</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- 
+    nome, cpf, dataNascimento, telefone, email, endereço
+   -->
+   <form [formGroup]="associadoForm" (ngSubmit)="submit()">
+    <ion-item lines="none">
+      <ion-label position="floating">Nome:</ion-label>
+      <ion-input formControlName="nome" type="text" ></ion-input>
+      <small class="error-message" *ngIf="associadoForm.get('nome')?.errors">Informa o certo filho</small>
+    </ion-item>
+    <ion-item>
+      <ion-label>CPF:</ion-label>
+      <ion-input type="text" placeholder="cpf"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Data Nascimento:</ion-label>
+      <ion-input type="text" placeholder="data de nascimento"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefone:</ion-label>
+      <ion-input type="tel" placeholder="telefone"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Email:</ion-label>
+      <ion-input type="email" placeholder="data de nascimento"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Endereço:</ion-label>
+      <ion-input type="text" placeholder="data de nascimento"></ion-input>
+    </ion-item>
+    <ion-button shape expand="block" color="primary" type="submit">
+      Adicionar
+    </ion-button>
+   </form>
 </ion-content>
